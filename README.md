@@ -37,3 +37,11 @@ and l1.inst_id = s1.inst_id
 and l2.sid = s2.sid
 and l2.inst_id = s2.inst_id
 order by l1.inst_id;
+
+
+=>kill user
+select s.sid,s.serial#,s.username,s.machine,s.program, to_char(s.logon_time,'dd/mm/yyyy hh24:mi:ss')logon_time from v$session s where s.username ='hr';
+
+=> alter system kill session '139,217' immediate; (139 /sid, 217 /serial)
+
+
